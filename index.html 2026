@@ -1,72 +1,204 @@
-🛑 ACCES RESTRICȚIONAT 🛑
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎮 Ieșirea cu Pațanii 🎮</title>
 
-[La deschiderea paginii apare un ecran negru]
+<style>
+body{
+    margin:0;
+    overflow:hidden;
+    font-family:Arial,sans-serif;
+    background:black;
+    color:white;
+    text-align:center;
+}
 
-INITIALIZARE SISTEM...
+#loading{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:black;
+    color:#00ff00;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:2em;
+    z-index:9999;
+}
 
-█ 10%
-███ 35%
-██████ 67%
-██████████ 100%
+.container{
+    display:none;
+    padding:20px;
+}
 
-⚠ IDENTIFICARE FINALIZATĂ ⚠
+h1{
+    font-size:4em;
+    animation:bounce 1s infinite;
+}
 
-Nume detectat: PAȚAN PIZDOS
-Statut: OBLIGAT SĂ VINĂ (DACĂ NU VII SOSATI)
+.card{
+    background:rgba(255,255,255,0.1);
+    padding:20px;
+    border-radius:20px;
+    max-width:800px;
+    margin:auto;
+    backdrop-filter:blur(10px);
+}
 
-═══════════════════════
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
 
-🎮 PRICALEALĂ CU PAȚANII 🎮
+@keyframes spin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
 
-📅 Data: 13.06.2026
-🕚 Ora: 11:00
-📍 Locația: Cyber
+.pc{
+    font-size:80px;
+    display:inline-block;
+    animation:spin 4s linear infinite;
+}
 
-MISIUNE:
-Gaming turbat la PC până când ne câcăm pe noi de râs
+#runaway{
+    position:absolute;
+    padding:15px 25px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:18px;
+}
 
-DURATĂ:
-POHUI 
+button{
+    padding:15px 25px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:18px;
+}
 
-AFTER-PARTY:
-🌯 Kebab pizdos 🌯
+#countdown{
+    font-size:28px;
+    margin:20px;
+}
+</style>
+</head>
 
-═══════════════════════
+<body>
 
-SELECTEAZĂ O OPȚIUNE:
+<div id="loading">
+⚠ ACCES RESTRICȚIONAT ⚠<br>
+Inițializare sistem...
+</div>
 
-[✅ VIN]
+<div class="container" id="main">
 
-[❌ NU VIN]
+<div class="card">
 
-*Butonul „NU VIN” fuge prin tot ecranul și nu poate fi apăsat.*
+<h1>🎮 IEȘIREA CU PAȚANII 🎮</h1>
 
-Dacă utilizatorul încearcă de 5 ori:
+<div class="pc">🖥️</div>
 
-😂 „Credeai că ai de ales?”
+<h2>📅 13.06.2026</h2>
+<h2>🕚 11:00</h2>
+<h2>📍 Cyber</h2>
 
-Dacă apasă „VIN”:
+<p><b>Motiv:</b> Gaming turbat la PC până ne căcăm pe noi de râs.</p>
 
-🎉 CONFIRMARE ACCEPTATĂ 🎉
+<p><b>Perioada:</b> POHUI</p>
 
-Ai primit:
-+100 Respect
-+50 Skill la CS
-+25 Rezistență la kebab
+<p><b>After-Party:</b> 🌯 Kebab pizdos 🌯</p>
 
-Ne vedem la Cyber!
+<div id="countdown"></div>
 
-═══════════════════════
+<br>
 
-🎵 MUZICĂ DE FUNDAL 🎵
+<button onclick="acceptInvite()">
+✅ VIN
+</button>
 
-* Yakety Sax (mod Benny Hill)
-* Never Gonna Give You Up (Rickroll surpriză)
-* Hamster Dance
+<button id="runaway">
+❌ NU VIN
+</button>
 
-═══════════════════════
+</div>
 
-MESAJ FINAL:
+</div>
 
-„Participarea este obligatorie.
-Dacă nu vii cumperi un bacs de pivă la toți pațanii de pe Poșta Veche.”
+<audio autoplay loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+setTimeout(()=>{
+document.getElementById("loading").style.display="none";
+document.getElementById("main").style.display="block";
+},3000);
+
+function acceptInvite(){
+alert("🎉 CONFIRMARE ACCEPTATĂ 🎉\n\n+100 Respect\n+50 Skill la CS\n+25 Rezistență la kebab");
+}
+
+const btn=document.getElementById("runaway");
+
+btn.addEventListener("mouseover",()=>{
+btn.style.left=Math.random()*(window.innerWidth-150)+"px";
+btn.style.top=Math.random()*(window.innerHeight-80)+"px";
+});
+
+const target=new Date("June 13, 2026 11:00:00").getTime();
+
+setInterval(()=>{
+
+const now=new Date().getTime();
+const diff=target-now;
+
+const d=Math.floor(diff/(1000*60*60*24));
+const h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+const m=Math.floor((diff%(1000*60*60))/(1000*60));
+const s=Math.floor((diff%(1000*60))/1000);
+
+document.getElementById("countdown").innerHTML=
+"⏳ Mai sunt: "+d+" zile "+h+" ore "+m+" minute "+s+" secunde";
+
+},1000);
+
+setInterval(()=>{
+
+const e=document.createElement("div");
+
+const emojis=["🎉","😂","🎮","🌯","🍕","🔥"];
+
+e.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+
+e.style.position="absolute";
+e.style.left=Math.random()*window.innerWidth+"px";
+e.style.top="-50px";
+e.style.fontSize="40px";
+
+document.body.appendChild(e);
+
+let pos=-50;
+
+const fall=setInterval(()=>{
+
+pos+=5;
+e.style.top=pos+"px";
+
+if(pos>window.innerHeight){
+clearInterval(fall);
+e.remove();
+}
+
+},20);
+
+},250);
+
+</script>
+
+</body>
+</html>
